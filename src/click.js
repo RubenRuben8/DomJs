@@ -1,13 +1,12 @@
 let incrementarButton = document.getElementById('incrementarButton');
+let incremento;
+window.onload = (event) => {
+  incremento = 
+  localStorage.getItem('incremento') == null 
+  ? { valor: 1 } 
+  : JSON.parse(localStorage.getItem('incremento'));
 
-let incremento =
-  localStorage.getItem('incremento') == null
-    ? { valor: 1 }
-    : JSON.parse(localStorage.getItem('incremento'));
-//  condicao ? verdadeira : falsa
-// if (localStorage.getItem('incremento') == null) {
-// }
-let j = 1;
+  let j = 1;
 while (j < incremento.valor) {
   // Recuperar o elemento da lista desordenada
   let itensUl = document.getElementById('itensUl');
@@ -15,6 +14,14 @@ while (j < incremento.valor) {
   itensUl.insertAdjacentHTML('beforeend', `<li>${j}</li>`);
   j++;
 }
+
+}
+
+
+
+//  condicao ? verdadeira : falsa
+// if (localStorage.getItem('incremento') == null) {
+// }
 
 // Evento de click do botão incrementar.
 incrementarButton.onclick = (event) => {
